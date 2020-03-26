@@ -10,7 +10,7 @@ export const userReducer: Reducer<UserState, UserActions> = (
     case UserActionTypes.UpdateName:
       return {
         ...state,
-        name: "name"
+        name: action.type 
       };
     default:
       return state;

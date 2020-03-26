@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.scss";
-import { UserActions, UpdateAgeAction } from "./state/user/UserActions";
+import { UpdateAgeAction } from "./state/user/UserActions";
 
 function App() {
   return (

@@ -11,7 +11,6 @@ import { initialState, AppState } from "../initialState";
 import { UserActions } from "../user/UserActions";
 import { Reducer } from "./Reducer";
 
-// By setting the typings here, we ensure we get intellisense in VS Code
 const initialContext: {
   state: AppState;
   dispatch: Dispatch<UserActions>;

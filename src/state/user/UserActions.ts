@@ -15,5 +15,3 @@ export class UpdateAgeAction implements Action {
 }
 
 export type UserActions = UpdateNameAction | UpdateAgeAction;
-
-console.log(UpdateNameAction);
