@@ -1,9 +1,15 @@
+import {
+  initialToDoItemsState,
+  ToDoItemsState
+} from "./toDoItems/ToDoItemsState";
 import { UserState, initialUserState } from "./user/UserState";
 
 export interface State {
-    user: UserState
+  user: UserState;
+  toDoItems: ToDoItemsState;
 }
 
 export const initialState: State = {
-    user: initialUserState
-}
+  user: initialUserState,
+  toDoItems: initialToDoItemsState
+};

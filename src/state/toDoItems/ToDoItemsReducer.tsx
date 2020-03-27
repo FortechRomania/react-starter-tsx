@@ -1,7 +1,10 @@
-import { UserActionTypes, UserActions } from "./UserActions";
-import { UserState } from "./UserState";
+import { UserActionTypes, UserActions } from "./ToDoItemsActions";
+import { ToDoItemsState } from "./ToDoItemsState";
 
-export const UserReducer = (state: UserState, action: UserActions) => {
+export const ToDoItemsReducer = (
+  state: ToDoItemsState,
+  action: UserActions
+) => {
   switch (action.type) {
     case UserActionTypes.UpdateUserAge:
       return {

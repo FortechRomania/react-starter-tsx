@@ -1,6 +1,6 @@
 export type ListItemType = {
   title: string;
-  buttons: ListItemButtonType[];
+  buttons?: ListItemButtonType[];
   id: number;
 };
 
