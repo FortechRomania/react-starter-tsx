@@ -7,4 +7,5 @@ export type ListItemType = {
 export type ListItemButtonType = {
   label: string;
   class: string;
+  action: string;
 };

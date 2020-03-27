@@ -1,16 +1,12 @@
-export enum UserActionTypes {
-  UpdateUserName = "[User] Update User name",
-  UpdateUserAge = "[User] Update User age"
+import { Action } from "../Action";
+
+export enum ToDoItemsActionTypes {
+  UpdateToDoItems = "[ToDoItems] Update items"
 }
 
-interface UpdateUserName {
-  type: UserActionTypes.UpdateUserName;
-  name: string;
+export class UpdateToDoItems implements Action {
+  public readonly type = ToDoItemsActionTypes.UpdateToDoItems;
+  constructor(public items: any) {}
 }
 
-interface UpdateUserAge {
-  type: UserActionTypes.UpdateUserAge;
-  age: number;
-}
-
-export type UserActions = UpdateUserName | UpdateUserAge;
+export type ToDoItemsActions = UpdateToDoItems;

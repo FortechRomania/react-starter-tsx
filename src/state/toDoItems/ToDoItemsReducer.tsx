@@ -1,21 +1,17 @@
-import { UserActionTypes, UserActions } from "./ToDoItemsActions";
+import { ToDoItemsActionTypes, ToDoItemsActions } from "./ToDoItemsActions";
 import { ToDoItemsState } from "./ToDoItemsState";
 
 export const ToDoItemsReducer = (
   state: ToDoItemsState,
-  action: UserActions
+  action: ToDoItemsActions
 ) => {
   switch (action.type) {
-    case UserActionTypes.UpdateUserAge:
+    case ToDoItemsActionTypes.UpdateToDoItems:
       return {
         ...state,
-        age: action.age
+        age: action.items
       };
-    case UserActionTypes.UpdateUserName:
-      return {
-        ...state,
-        name: action.name
-      };
+
     default:
       return state;
   }
