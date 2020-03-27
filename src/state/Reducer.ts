@@ -6,13 +6,13 @@ export const combineReducers = <T>(reducers: {[P in keyof T]: any}) =>  {
     return (state: T, action: any) => {
       const nextState = {} as T;
           for(const [key, reducer] of reducerEntries){
-            const previousStateForKey = state[key]
+            const previousStateForKey = state[key];
             const nextStateForKey = reducer(previousStateForKey, action)
             nextState[key] = nextStateForKey;
           }
       return nextState;
     }
-  }
+}
 
   export const reducer = combineReducers<State>({
       user: UserReducer,

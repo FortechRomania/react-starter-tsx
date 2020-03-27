@@ -1,22 +1,17 @@
 import React from "react";
 import "./App.scss";
 import { useGlobalState } from "./state/useGlobalState";
-import { UserActionTypes } from "./state/user/UserActions";
+import { UpdateUserName, UpdateUserAge } from "./state/user/UserActions";
+
 function App() {
   const {state, dispatch} = useGlobalState();
 
   const updateName = () => {
-    dispatch({
-      type: UserActionTypes.UpdateUserName,
-      name: "Emanuel"
-    })
+    dispatch(new UpdateUserName('Emanuel'))
   }
 
   const updateAge = () => {
-    dispatch({
-      type: UserActionTypes.UpdateUserAge,
-      age: 30
-    })
+    dispatch(new UpdateUserAge(30))
   }
 
 
