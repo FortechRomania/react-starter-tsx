@@ -5,22 +5,17 @@ import { UserActionTypes } from "./state/user/UserActions";
 import ToDoList from "./features/ToDoList/ToDoList";
 import { Header } from "./shared/Header/Header";
 import DoneList from "./features/DoneList/DoneList";
+import { UpdateUserName, UpdateUserAge } from "./state/user/UserActions";
 
 function App() {
   const { state, dispatch } = useGlobalState();
 
   const updateName = () => {
-    dispatch({
-      type: UserActionTypes.UpdateUserName,
-      name: "Emanuel"
-    });
+    dispatch(new UpdateUserName("Emanuel"));
   };
 
   const updateAge = () => {
-    dispatch({
-      type: UserActionTypes.UpdateUserAge,
-      age: 30
-    });
+    dispatch(new UpdateUserAge(30));
   };
 
   return (

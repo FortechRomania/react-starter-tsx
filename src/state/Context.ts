@@ -1,10 +1,10 @@
 import React, { createContext } from 'react';
-import { UserActions } from './user/UserActions';
 import { State, initialState } from './State';
+import { Action } from './Action';
 
 
 
-const initialContext: { state: State; dispatch: React.Dispatch<UserActions> } = {
+const initialContext: { state: State; dispatch: React.Dispatch<Action> } = {
   state: initialState,
   dispatch: () => {}
 };
