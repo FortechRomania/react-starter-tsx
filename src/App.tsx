@@ -1,26 +1,29 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.scss";
+import { useGlobalState } from "./state/useGlobalState";
+import { UpdateUserName, UpdateUserAge } from "./state/user/UserActions";
 
 function App() {
+  const {state, dispatch} = useGlobalState();
+
+  const updateName = () => {
+    dispatch(new UpdateUserName('Emanuel'))
+  }
+
+  const updateAge = () => {
+    dispatch(new UpdateUserAge(30))
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <button onClick={updateName}>set name to Emanuel</button>
+     <button onClick={updateAge}>set age to 30</button><br /><br />
+     Current name: <b>{state.user.name}</b><br />
+     Current age: <b>{state.user.age}</b>
     </div>
   );
 }
 
 export default App;
+
