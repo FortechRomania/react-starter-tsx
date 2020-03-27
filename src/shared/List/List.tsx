@@ -7,7 +7,7 @@ export function List(props: { items: ListItemType[] }) {
   return (
     <div className="list-wrapper">
       {props.items.map(item => (
-        <ListItem key={item.id} item={item} {...props} />
+        <ListItem key={item.id} item={item} />
       ))}
     </div>
   );

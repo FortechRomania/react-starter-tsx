@@ -4,6 +4,7 @@ import { useGlobalState } from "./state/useGlobalState";
 import { InProgressList } from "./features/InProgressList/InProgressList";
 import { Header } from "./shared/Header/Header";
 import { UpdateUserName, UpdateUserAge } from "./state/user/UserActions";
+import { DoneList } from "./features/DoneList/DoneList";
 
 function App() {
   const { state, dispatch } = useGlobalState();
@@ -19,8 +20,13 @@ function App() {
   const deleteInProgressItem = (e: number) => {
     console.log("delete", e);
   };
+
   const moveItemToDone = (e: number) => {
     console.log("move item to done", e);
+  };
+
+  const removeItemFromDone = (e: number) => {
+    console.log("remove item from done");
   };
 
   return (
@@ -36,7 +42,10 @@ function App() {
             onDelete={deleteInProgressItem}
             onMoveItemToDone={moveItemToDone}
           />
-          {/* <DoneList doneItems={state.toDoItems.done} /> */}
+          {/* <DoneList
+            doneItems={state.toDoItems.done}
+            onRemove={removeItemFromDone}
+          /> */}
         </div>
       </div>
     </div>

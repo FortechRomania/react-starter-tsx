@@ -9,17 +9,13 @@ export function InProgressList(props: {
   inProgressItems: ListItemType[];
 }) {
   const buttons: ListItemButtonType[] = [
-    { label: "Done", class: "green-button", action: "onMoveItemToDone" },
-    { label: "Delete", class: "red-button", action: "onDelete" }
+    { label: "Done", class: "green-button", action: props.onMoveItemToDone },
+    { label: "Delete", class: "red-button", action: props.onDelete }
   ];
   let inProgressItems: ListItemType[] = props.inProgressItems.map(item => {
     item.buttons = buttons;
     return item;
   });
 
-  return (
-    <React.Fragment>
-      <List items={inProgressItems} {...props} />
-    </React.Fragment>
-  );
+  return <List items={inProgressItems} />;
 }

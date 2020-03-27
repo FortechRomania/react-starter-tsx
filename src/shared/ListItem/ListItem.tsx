@@ -2,7 +2,7 @@ import React from "react";
 import { ListItemType } from "../../common.types";
 import "./ListItem.scss";
 
-export function ListItem(props: any) {
+export function ListItem(props: { item: ListItemType }) {
   function getButtons() {
     if (!props.item.buttons) {
       return;
@@ -10,8 +10,9 @@ export function ListItem(props: any) {
     return props.item.buttons.map((button: any) => {
       return (
         <button
+          key={button.label}
           className={`button ${button.class}`}
-          onClick={() => props[button.action](props.item.id)}
+          onClick={() => button.action(props.item.id)}
         >
           {button.label}
         </button>
