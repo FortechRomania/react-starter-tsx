@@ -1,5 +1,6 @@
 import { UserReducer } from "./user/UserReducer";
 import { State } from "./State";
+import { ToDoItemsReducer } from "./toDoItems/ToDoItemsReducer";
 
 export const combineReducers = <T>(reducers: { [P in keyof T]: any }) => {
   const reducerEntries = Object.entries<any>(reducers) as [keyof T, any][];
@@ -16,5 +17,5 @@ export const combineReducers = <T>(reducers: { [P in keyof T]: any }) => {
 
 export const reducer = combineReducers<State>({
   user: UserReducer,
-  toDoItems: ""
+  toDoItems: ToDoItemsReducer
 });

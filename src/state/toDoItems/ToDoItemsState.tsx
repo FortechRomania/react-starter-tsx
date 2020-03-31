@@ -1,13 +1,15 @@
+import { ListItemType } from "../../common.types";
+
 export type ToDoItemsState = {
-  done: any;
-  inProgress: any;
+  done: ListItemType[];
+  inProgress: ListItemType[];
 };
 
-export const initialToDoItemsState: any = {
+export const initialToDoItemsState: ToDoItemsState = {
   done: [{ id: 1, title: "Shopping" }, { id: 2, title: "Cooking" }],
   inProgress: [
-    { id: 1, title: "Groceries" },
-    { id: 2, title: "Cleaning" },
-    { id: 3, title: "Creating a website" }
+    { id: 3, title: "Groceries" },
+    { id: 4, title: "Cleaning" },
+    { id: 5, title: "Creating a website" }
   ]
 };

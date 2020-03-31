@@ -1,14 +1,20 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { ListItem } from "../ListItem/ListItem";
 import { ListItemType } from "../../common.types";
 import "./List.scss";
 
-export function List(props: { items: ListItemType[] }) {
+type Props = {
+  items: ListItemType[];
+};
+
+export const List: FunctionComponent<Props> = ({ items }) => {
   return (
     <div className="list-wrapper">
-      {props.items.map(item => (
-        <ListItem key={item.id} item={item} />
-      ))}
+      {items.length ? (
+        items.map(item => <ListItem key={item.id} item={item} />)
+      ) : (
+        <span className="info">No items in the list</span>
+      )}
     </div>
   );
-}
+};

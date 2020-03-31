@@ -1,18 +1,22 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { ListItemType } from "../../common.types";
 import "./ListItem.scss";
 
-export function ListItem(props: { item: ListItemType }) {
+type Props = {
+  item: ListItemType;
+};
+
+export const ListItem: FunctionComponent<Props> = ({ item }) => {
   function getButtons() {
-    if (!props.item.buttons) {
+    if (!item.buttons) {
       return;
     }
-    return props.item.buttons.map((button: any) => {
+    return item.buttons.map(button => {
       return (
         <button
           key={button.label}
           className={`button ${button.class}`}
-          onClick={() => button.action(props.item.id)}
+          onClick={() => button.action(item.id)}
         >
           {button.label}
         </button>
@@ -23,9 +27,9 @@ export function ListItem(props: { item: ListItemType }) {
   return (
     <div className="wrapper">
       <div className="left">
-        <span>{props.item.title} </span>
+        <span>{item.title} </span>
       </div>
       <div className="right">{getButtons()}</div>
     </div>
   );
-}
+};

@@ -3,30 +3,55 @@ import "./App.scss";
 import { useGlobalState } from "./state/useGlobalState";
 import { InProgressList } from "./features/InProgressList/InProgressList";
 import { Header } from "./shared/Header/Header";
-import { UpdateUserName, UpdateUserAge } from "./state/user/UserActions";
 import { DoneList } from "./features/DoneList/DoneList";
+import { UpdateToDoItems } from "./state/toDoItems/ToDoItemsActions";
+import { ListItemType } from "./common.types";
 
 function App() {
   const { state, dispatch } = useGlobalState();
 
-  const updateName = () => {
-    dispatch(new UpdateUserName("Emanuel"));
+  const moveItemFromArrayToAnother = (
+    itemId: number,
+    oldArray: ListItemType[],
+    newArray: ListItemType[]
+  ) => {
+    const item = oldArray.find(item => item.id === itemId);
+    if (!item) {
+      return;
+    }
+    const newArrayUpdated = [...newArray];
+    newArrayUpdated.push(item);
+    const oldArrayUpdated = oldArray.filter(item => item.id !== itemId);
+
+    return [oldArrayUpdated, newArrayUpdated];
   };
 
-  const updateAge = () => {
-    dispatch(new UpdateUserAge(30));
+  const deleteInProgressItem = (itemIndex: number) => {
+    const { inProgress, done } = state.toDoItems;
+    const newArray = inProgress.filter(item => item.id !== itemIndex);
+
+    dispatch(
+      new UpdateToDoItems({
+        done: [...done],
+        inProgress: newArray
+      })
+    );
   };
 
-  const deleteInProgressItem = (e: number) => {
-    console.log("delete", e);
+  const moveItemToDone = (itemIndex: number) => {
+    const { inProgress, done } = state.toDoItems;
+    const result = moveItemFromArrayToAnother(itemIndex, inProgress, done);
+    if (result) {
+      dispatch(new UpdateToDoItems({ done: result[1], inProgress: result[0] }));
+    }
   };
 
-  const moveItemToDone = (e: number) => {
-    console.log("move item to done", e);
-  };
-
-  const removeItemFromDone = (e: number) => {
-    console.log("remove item from done");
+  const removeItemFromDone = (itemIndex: number) => {
+    const { inProgress, done } = state.toDoItems;
+    const result = moveItemFromArrayToAnother(itemIndex, done, inProgress);
+    if (result) {
+      dispatch(new UpdateToDoItems({ done: result[0], inProgress: result[1] }));
+    }
   };
 
   return (
@@ -42,10 +67,10 @@ function App() {
             onDelete={deleteInProgressItem}
             onMoveItemToDone={moveItemToDone}
           />
-          {/* <DoneList
+          <DoneList
             doneItems={state.toDoItems.done}
             onRemove={removeItemFromDone}
-          /> */}
+          />
         </div>
       </div>
     </div>

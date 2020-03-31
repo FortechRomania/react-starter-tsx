@@ -8,8 +8,7 @@ export const ToDoItemsReducer = (
   switch (action.type) {
     case ToDoItemsActionTypes.UpdateToDoItems:
       return {
-        ...state,
-        age: action.items
+        ...action.items
       };
 
     default:

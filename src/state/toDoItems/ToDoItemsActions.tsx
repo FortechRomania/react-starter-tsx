@@ -1,4 +1,5 @@
 import { Action } from "../Action";
+import { ToDoItemsState } from "./ToDoItemsState";
 
 export enum ToDoItemsActionTypes {
   UpdateToDoItems = "[ToDoItems] Update items"
@@ -6,7 +7,7 @@ export enum ToDoItemsActionTypes {
 
 export class UpdateToDoItems implements Action {
   public readonly type = ToDoItemsActionTypes.UpdateToDoItems;
-  constructor(public items: any) {}
+  constructor(public items: ToDoItemsState) {}
 }
 
 export type ToDoItemsActions = UpdateToDoItems;
