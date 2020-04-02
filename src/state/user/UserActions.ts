@@ -6,8 +6,6 @@ export enum UserActionTypes {
 
 }
 
-
-
 export class UpdateUserAge implements Action{
     public readonly type =  UserActionTypes.UpdateUserAge;
     constructor(public age: number) { }
