@@ -4,6 +4,6 @@ export type UserState = {
 };
 
 export const initialUserState: UserState = {
-  age: 12,
-  name: "Initial name"
+	age: 12,
+	name: 'Initial name'
 };

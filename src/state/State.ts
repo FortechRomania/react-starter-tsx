@@ -1,8 +1,8 @@
 import {
-  initialToDoItemsState,
-  ToDoItemsState
-} from "./toDoItems/ToDoItemsState";
-import { UserState, initialUserState } from "./user/UserState";
+	ToDoItemsState,
+	initialToDoItemsState
+} from './toDoItems/ToDoItemsState';
+import { UserState, initialUserState } from './user/UserState';
 
 export interface State {
   user: UserState;
@@ -10,6 +10,6 @@ export interface State {
 }
 
 export const initialState: State = {
-  user: initialUserState,
-  toDoItems: initialToDoItemsState
+	user: initialUserState,
+	toDoItems: initialToDoItemsState
 };
