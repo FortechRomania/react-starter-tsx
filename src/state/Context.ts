@@ -6,7 +6,7 @@ import { Action } from './Action';
 const initialContext: { state: State; dispatch: React.Dispatch<Action> } = {
 	state: initialState,
 	/* eslint-disable @typescript-eslint/no-empty-function */
-	dispatch: () => {}
+	dispatch: () => {},
 };
 
-export const Context = createContext( initialContext );
+export const Context = createContext(initialContext);

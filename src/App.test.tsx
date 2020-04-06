@@ -2,8 +2,8 @@ import App from './App';
 import React from 'react';
 import { render } from '@testing-library/react';
 
-test( 'renders learn react link', () => {
-	const { getByText } = render( <App /> );
-	const currentNameLabel = getByText( /Current name/i );
-	expect( currentNameLabel ).toBeInTheDocument();
-} );
+test('renders learn react link', () => {
+	const { getByText } = render(<App />);
+	const currentNameLabel = getByText(/Current name/i);
+	expect(currentNameLabel).toBeInTheDocument();
+});

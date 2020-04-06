@@ -6,16 +6,16 @@ import { ListItem } from '../ListItem/ListItem';
 import { ListItemType } from '../../common.types';
 
 type Props = {
-  items: ListItemType[];
+	items: ListItemType[];
 };
 
-export const List: FunctionComponent<Props> = ( { items }: Props ) => {
+export const List: FunctionComponent<Props> = ({ items }: Props) => {
 	return (
 		<div className="list-wrapper">
 			{items.length ? (
-				items.map( item => < ListItem key={item.id} item={item} /> )
+				items.map((item) => <ListItem key={item.id} item={item} />)
 			) : (
-				<span className= "info">No items in the list</span>
+				<span className="info">No items in the list</span>
 			)}
 		</div>
 	);
