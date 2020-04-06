@@ -1,11 +1,11 @@
 export type ListItemType = {
-  title: string;
-  buttons?: ListItemButtonType[];
-  id: number;
+	title: string;
+	buttons?: ListItemButtonType[];
+	id: number;
 };
 
 export type ListItemButtonType = {
-  label: string;
-  class: string;
-  action: Function;
+	label: string;
+	class: string;
+	action: Function;
 };

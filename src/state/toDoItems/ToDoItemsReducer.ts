@@ -1,17 +1,15 @@
-import { ToDoItemsActionTypes, ToDoItemsActions } from "./ToDoItemsActions";
-import { ToDoItemsState } from "./ToDoItemsState";
+import { ToDoItemsActionTypes, ToDoItemsActions } from './ToDoItemsActions';
 
-export const ToDoItemsReducer = (
-  state: ToDoItemsState,
-  action: ToDoItemsActions
-) => {
-  switch (action.type) {
-    case ToDoItemsActionTypes.UpdateToDoItems:
-      return {
-        ...action.items
-      };
+import { ToDoItemsState } from './ToDoItemsState';
 
-    default:
-      return state;
-  }
+export const ToDoItemsReducer = (state: ToDoItemsState, action: ToDoItemsActions) => {
+	switch (action.type) {
+		case ToDoItemsActionTypes.UpdateToDoItems:
+			return {
+				...action.items,
+			};
+
+		default:
+			return state;
+	}
 };

@@ -1,17 +1,16 @@
-import React, { FunctionComponent } from "react";
-import { List } from "../../shared/List/List";
-import { ListItemButtonType, ListItemType } from "../../common.types";
+import { ListItemButtonType, ListItemType } from '../../common.types';
+import React, { FunctionComponent } from 'react';
 
-type Props = { doneItems: ListItemType[]; onRemove: Function };
+import { List } from '../../shared/List/List';
 
-export const DoneList: FunctionComponent<Props> = ({ doneItems, onRemove }) => {
-  const buttons: ListItemButtonType[] = [
-    { label: "Remove", class: "red-button", action: onRemove }
-  ];
-  let DoneItems: ListItemType[] = doneItems.map(item => {
-    item.buttons = buttons;
-    return item;
-  });
+type PropTypes = { doneItems: ListItemType[]; onRemove: Function };
 
-  return <List items={DoneItems} />;
+export const DoneList: FunctionComponent<PropTypes> = ({ doneItems, onRemove }: PropTypes) => {
+	const buttons: ListItemButtonType[] = [{ label: 'Remove', class: 'red-button', action: onRemove }];
+	const DoneItems: ListItemType[] = doneItems.map((item) => {
+		item.buttons = buttons;
+		return item;
+	});
+
+	return <List items={DoneItems} />;
 };
